@@ -3,8 +3,10 @@ package com.example.ugd3_kelompok10
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
     lateinit var bottomNav : BottomNavigationView
@@ -25,15 +27,24 @@ class HomeActivity : AppCompatActivity() {
                     return@setOnNavigationItemReselectedListener
                 }
                 R.id.menu_profil -> {
-                    loadFragment(FragmentProfil())
+                    var moveProfile: Intent
+                    moveProfile = Intent(this, ProfilActivity::class.java)
+                    moveProfile.putExtra("Person", intent.getBundleExtra("Person"))
+                    startActivity(moveProfile)
                     return@setOnNavigationItemReselectedListener
+                }
+                R.id.menu_notification ->{
+                    val intent = Intent(this, NotificationsActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.menu_exit -> {
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 }
+
             }
         }
+
     }
 
     private  fun loadFragment(fragment: Fragment){
