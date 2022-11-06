@@ -22,9 +22,9 @@ class HomeActivity : AppCompatActivity() {
                     loadFragment(FragmentHome())
                     return@setOnNavigationItemReselectedListener
                 }
-                R.id.menu_search -> {
-                    loadFragment(FragmentSearch())
-                    return@setOnNavigationItemReselectedListener
+                R.id.menu_location -> {
+                    val intent = Intent(this, LocationActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.menu_profil -> {
                     var moveProfile: Intent

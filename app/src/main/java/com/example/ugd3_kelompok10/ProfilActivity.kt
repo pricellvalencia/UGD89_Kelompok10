@@ -19,6 +19,12 @@ class ProfilActivity : AppCompatActivity() {
             val moveEditProfil = Intent(this@ProfilActivity, EditProfilActivity::class.java)
             startActivity(moveEditProfil)
         })
+
+        val btnEditFoto: Button = findViewById(R.id.btnEditFoto)
+        btnEditFoto.setOnClickListener(View.OnClickListener {
+            val moveEditFoto = Intent(this@ProfilActivity, EditFotoActivity::class.java)
+            startActivity(moveEditFoto)
+        })
     }
 
     fun setData() {
